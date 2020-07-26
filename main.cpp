@@ -30,7 +30,8 @@ int main(int argc, char** argv) {
 	m.imprimir();
 	cout<<"Monticulo lleno "<<m.monticuloLleno()<<endl;
 	cout<<endl;
-	monticulo m1;
-	m1.imprimir();
+	
+//	monticulo m1;
+//	m1.imprimir();
 	return 0;
 }

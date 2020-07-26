@@ -55,14 +55,49 @@ void monticulo::insertar(int clave){
 			}
 			
 		} while(!insertado);
-	} else{
+	}else{
 		cout<<"No se ha podido insertar debido a que el arreglo esta lleno"<<endl;
 	}
 		
 }
 
 int monticulo::atender(){
-	
+	int pendiente;
+	int i=1;
+	pendiente= arr[posActual-1];
+	arr[posActual-1]=-1;
+	posActual--;
+	while(pendiente!=-1){
+		if(((2*i)+1)>tam || (2*i)>tam){
+				arr[i]=pendiente;
+				pendiente =-1;			
+		}else{
+			if(arr[2*i]>arr[(2*i)+1] && arr[2*i]>pendiente){
+				//cout<<arr[2*i]<<endl;
+				arr[i]=arr[2*i];
+				arr[2*i]=-1;
+				i=2*i;
+			}else{
+			if(arr[(2*i)+1]>arr[2*i] && arr[(2*i)+1]>pendiente){
+				//cout<<i<<endl;
+				arr[i]=arr[(2*i)+1];
+				arr[2*i]=-1;
+				i=(2*i)+1;
+				//cout<<i<<endl;
+				//cout<<pendiente<<endl;
+			}else{
+				if(pendiente>arr[(2*i)+1] && pendiente>arr[2*i]){
+					//cout<<i<<endl;
+					arr[i]=pendiente;
+					pendiente =-1;
+					//cout<<pendiente<<endl;
+					//cout<<i<<endl;
+					}
+				}
+			}
+		}
+		
+	}
 }
 
 bool monticulo::monticuloLleno(){
